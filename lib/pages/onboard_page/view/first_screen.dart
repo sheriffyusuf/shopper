@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -9,48 +11,69 @@ class FirstScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(
-      children: [
-        Expanded(
-          flex: 3,
-          child: Stack(
-            children: [
-              SvgPicture.asset(
-                "assets/images/logo.svg",
-                height: context.height() * 0.25,
-              ),
-              Center(
-                child: SvgPicture.asset(
-                  "assets/images/logo.svg",
-                  height: context.height() * 0.25,
-                ), /* Assets.images.logo
-                    .image(width: context.width() - 164), */
-              ),
-            ],
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.white,
+
+        // For Android.
+        // Use [light] for white status bar and [dark] for black status bar.
+        statusBarIconBrightness: Brightness.dark,
+        // For iOS.
+        // Use [dark] for white status bar and [light] for black status bar.
+        statusBarBrightness: Brightness.dark,
+      ),
+      child: Scaffold(
+          body: Column(
+        children: [
+          20.height,
+          Expanded(
+            flex: 4,
+            child: Stack(
+              children: [
+                SvgPicture.asset(
+                  "assets/images/background.svg",
+                ),
+                Center(
+                  child: SizedBox(
+                    width: context.width() / 1.5,
+                    height: context.height() / 1,
+                    child: SvgPicture.asset(
+                      "assets/images/logo_text.svg",
+                    ),
+                  ), /* Assets.images.logo
+                      .image(width: context.width() - 164), */
+                ),
+              ],
+            ),
           ),
-        ),
-        Expanded(
-          child: Container(
-            color: Colors.transparent,
+          Expanded(
             child: Container(
-                height: 100,
-                width: 200,
-                decoration: const BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20.0),
-                      topRight: Radius.circular(20.0),
-                    )),
-                child: const Center(
-                  child: Text(
-                    "Explore Us",
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  ),
-                )),
-          ),
-        )
-      ],
-    ));
+              color: Colors.transparent,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                      width: context.width() / 1.2,
+                      height: 64,
+                      decoration: const BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20.0),
+                          )),
+                      child: const Center(
+                        child: Text(
+                          "Explore Us",
+                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        ),
+                      )),
+                  15.height,
+                ],
+              ),
+            ),
+          )
+        ],
+      )),
+    );
   }
 }
