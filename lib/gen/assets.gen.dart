@@ -15,6 +15,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/background.svg
   String get background => 'assets/images/background.svg';
 
+  /// File path: assets/images/fourth_image.svg
+  String get fourthImage => 'assets/images/fourth_image.svg';
+
   /// File path: assets/images/logo.png
   AssetGenImage get logoPng => const AssetGenImage('assets/images/logo.png');
 
@@ -23,6 +26,12 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/logo_text.svg
   String get logoText => 'assets/images/logo_text.svg';
+
+  /// File path: assets/images/second_image.svg
+  String get secondImage => 'assets/images/second_image.svg';
+
+  /// File path: assets/images/third_image.svg
+  String get thirdImage => 'assets/images/third_image.svg';
 }
 
 class Assets {

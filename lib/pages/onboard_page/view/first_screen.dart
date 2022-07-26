@@ -1,8 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_shopper/pages/onboard_page/view/second_screen.dart';
+import 'package:flutter_shopper/route/router.gr.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -47,28 +50,37 @@ class FirstScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Container(
-              color: Colors.transparent,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                      width: context.width() / 1.2,
-                      height: 64,
-                      decoration: const BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(20.0),
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Container(
+               
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        context.replaceRoute(const SecondRoute());
+                      },
+                      child: Container(
+                          width: context.width() / 1.2,
+                          height: 64,
+                          decoration: const BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(20.0),
+                              )),
+                          child: const Center(
+                            child: Text(
+                              "Explore Us",
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.white),
+                            ),
                           )),
-                      child: const Center(
-                        child: Text(
-                          "Explore Us",
-                          style: TextStyle(fontSize: 18, color: Colors.white),
-                        ),
-                      )),
-                  15.height,
-                ],
+                    ),
+                    15.height,
+                  ],
+                ),
               ),
             ),
           )
