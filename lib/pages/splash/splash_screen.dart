@@ -33,14 +33,14 @@ class SplashScreen extends HookWidget {
     });
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
-        statusBarColor: Colors.white,
+        statusBarColor: Color(0xFF01221D),
 
         // For Android.
         // Use [light] for white status bar and [dark] for black status bar.
-        // statusBarIconBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.light,
         // For iOS.
         // Use [dark] for white status bar and [light] for black status bar.
-        // statusBarBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.light,
       ),
       child: Scaffold(
           body: Container(
