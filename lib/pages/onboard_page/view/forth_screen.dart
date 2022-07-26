@@ -75,7 +75,7 @@ class ForthScreen extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        //context.replaceRoute(const ThirdRoute());
+                        context.replaceRoute(const WelcomeRoute());
                       },
                       child: Container(
                           alignment: Alignment.center,

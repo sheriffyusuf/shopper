@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_shopper/route/router.gr.dart';
+import 'package:flutter_shopper/utils/colors.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 Future<void> main() async {
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.light,
-        primaryColor: const Color(0xFF1759a7),
+        primaryColor: kAppColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       routerDelegate: _rootRouter.delegate(),

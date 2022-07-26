@@ -4,6 +4,7 @@ import 'package:flutter_shopper/pages/onboard_page/view/forth_screen.dart';
 import 'package:flutter_shopper/pages/onboard_page/view/second_screen.dart';
 import 'package:flutter_shopper/pages/onboard_page/view/third_screen.dart';
 import 'package:flutter_shopper/pages/splash/splash_screen.dart';
+import 'package:flutter_shopper/pages/welcome/view/welcome_screen.dart';
 
 @AdaptiveAutoRouter(
     replaceInRouteName: 'Page|Screen,Route',
@@ -28,6 +29,10 @@ import 'package:flutter_shopper/pages/splash/splash_screen.dart';
       AutoRoute(
         page: ForthScreen,
         path: '/third',
+      ),
+       AutoRoute(
+        page: WelcomeScreen,
+        path: '/welcome',
       ),
     ])
 class $RootRouter {}

@@ -32,6 +32,9 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/third_image.svg
   String get thirdImage => 'assets/images/third_image.svg';
+
+  /// File path: assets/images/welcome.svg
+  String get welcome => 'assets/images/welcome.svg';
 }
 
 class Assets {
