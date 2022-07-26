@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_shopper/pages/onboard_page/view/first_screen.dart';
 import 'package:flutter_shopper/pages/splash/splash_screen.dart';
 
 @AdaptiveAutoRouter(
@@ -9,8 +10,9 @@ import 'package:flutter_shopper/pages/splash/splash_screen.dart';
         path: '/splash',
         initial: true,
       ),
-
-    
+      AutoRoute(
+        page: FirstScreen,
+        path: '/first',
+      ),
     ])
 class $RootRouter {}
-
