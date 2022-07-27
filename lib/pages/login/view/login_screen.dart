@@ -196,7 +196,7 @@ class LoginScreen extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
-                                  color: kGray),
+                                  color: kLightGrayColor),
                             ),
                             25.height,
                             Row(
