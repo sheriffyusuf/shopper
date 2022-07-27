@@ -30,11 +30,17 @@ class $AssetsImagesGen {
   /// File path: assets/images/second_image.svg
   String get secondImage => 'assets/images/second_image.svg';
 
+  /// File path: assets/images/splash.png
+  AssetGenImage get splash => const AssetGenImage('assets/images/splash.png');
+
   /// File path: assets/images/third_image.svg
   String get thirdImage => 'assets/images/third_image.svg';
 
   /// File path: assets/images/welcome.svg
   String get welcome => 'assets/images/welcome.svg';
+
+  /// File path: assets/images/welcome_text.svg
+  String get welcomeText => 'assets/images/welcome_text.svg';
 }
 
 class Assets {

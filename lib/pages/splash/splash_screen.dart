@@ -48,7 +48,7 @@ class SplashScreen extends HookWidget {
         child: Center(
           child: SvgPicture.asset(
             "assets/images/logo.svg",
-            height: context.height() * 0.25,
+            height: context.height() / 6,
           ), /* Assets.images.logo
               .image(width: context.width() - 164), */
         ),

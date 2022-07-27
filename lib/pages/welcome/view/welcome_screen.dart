@@ -26,69 +26,79 @@ class WelcomeScreen extends StatelessWidget {
         // Use [dark] for white status bar and [light] for black status bar.
         statusBarBrightness: Brightness.dark,
       ),
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
+      child: SafeArea(
+        child: Scaffold(
+          body: Column(
             children: [
-              Container(
-                width: context.width(),
+              Align(
                 alignment: Alignment.topRight,
-                child: SizedBox(
-                  width: context.width() / 1,
-                  height: context.height() / 2.6,
-                  child: SvgPicture.asset(
-                    "assets/images/welcome.svg",
+                child: Container(
+                  width: context.width(),
+                  alignment: Alignment.topRight,
+                  child: SizedBox(
+                    width: context.width() / 1.2,
+                    height: context.height() / 2.6,
+                    child: SvgPicture.asset(
+                      "assets/images/welcome.svg",
+                    ),
                   ),
                 ),
               ),
-              Container(
-                width: context.width(),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        width: 90,
-                        height: 90,
-                        child: SvgPicture.asset(
-                          "assets/images/logo.svg",
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Container(
+                      width: context.width(),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 90,
+                              height: 90,
+                              child: SvgPicture.asset(
+                                "assets/images/logo.svg",
+                              ),
+                            ),
+                            SizedBox(
+                              width: context.width() / 2,
+                              height: context.height() / 8,
+                              child: SvgPicture.asset(
+                                "assets/images/welcome_text.svg",
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      SizedBox(
-                        width: context.width() / 2,
-                        height: context.height() / 8,
-                        child: SvgPicture.asset(
-                          "assets/images/welcome_text.svg",
+                    ),
+                    Container(
+                      width: context.width(),
+                      child: const Padding(
+                        padding: EdgeInsets.only(left: 10),
+                        child: Text(
+                          'Make it your own. As you\'re setting up your\n online store, you have the ability to customize.',
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.w400),
                         ),
                       ),
-                    ],
-                  ),
-                ),
-              ),
-              Container(
-                width: context.width(),
-                child: const Padding(
-                  padding: EdgeInsets.only(left: 10),
-                  child: Text(
-                    'Make it your own. As you\'re setting up your\n online store, you have the ability to customize.',
-                    textAlign: TextAlign.start,
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
-                  ),
+                    ),
+                  ],
                 ),
               ),
               10.height,
               const Spacer(),
               AppButton(
                 title: 'Login',
-                onPressed: () => context.replaceRoute(const ForthRoute()),
+                onPressed: () => context.replaceRoute(const LoginRoute()),
               ),
               24.height,
               AppOutlinedButton(
                 title: 'Sign up',
-                onPressed: () => context.replaceRoute(const ForthRoute()),
+                onPressed: () => context.replaceRoute(const SignInRoute()),
               ),
               10.height
             ],
