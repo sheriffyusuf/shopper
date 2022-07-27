@@ -190,7 +190,15 @@ class LoginScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            30.height,
+                            5.height,
+                            const Text(
+                              'Or sign in with',
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: kGray),
+                            ),
+                            25.height,
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.center,
