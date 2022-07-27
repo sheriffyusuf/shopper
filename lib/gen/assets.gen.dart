@@ -27,8 +27,14 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo_text.svg
   String get logoText => 'assets/images/logo_text.svg';
 
+  /// File path: assets/images/logo_white.svg
+  String get logoWhite => 'assets/images/logo_white.svg';
+
   /// File path: assets/images/second_image.svg
   String get secondImage => 'assets/images/second_image.svg';
+
+  /// File path: assets/images/signin_text.svg
+  String get signinText => 'assets/images/signin_text.svg';
 
   /// File path: assets/images/splash.png
   AssetGenImage get splash => const AssetGenImage('assets/images/splash.png');

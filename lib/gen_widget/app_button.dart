@@ -7,10 +7,12 @@ class AppButton extends StatelessWidget {
       {Key? key,
       required this.onPressed,
       required this.title,
-      this.isDisabled = false});
+      this.isDisabled = false,
+      this.color = Colors.black});
   final bool isDisabled;
   final Function()? onPressed;
   final String title;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class AppButton extends StatelessWidget {
               )
           : Ink(
               decoration: BoxDecoration(
-                  color: black,
+                  color: color,
                   /* gradient: const LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
