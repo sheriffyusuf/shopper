@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_shopper/pages/forgot_password/views/forgot_screen.dart';
 import 'package:flutter_shopper/pages/login/view/login_screen.dart';
 import 'package:flutter_shopper/pages/onboard_page/view/first_screen.dart';
 import 'package:flutter_shopper/pages/onboard_page/view/forth_screen.dart';
@@ -43,6 +44,10 @@ import 'package:flutter_shopper/pages/welcome/view/welcome_screen.dart';
       AutoRoute(
         page: SignInScreen,
         path: '/signin',
+      ),
+      AutoRoute(
+        page: ForgotPasswordScreen,
+        path: '/forgot',
       ),
     ])
 class $RootRouter {}

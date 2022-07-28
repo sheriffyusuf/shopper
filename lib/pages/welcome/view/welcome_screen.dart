@@ -79,7 +79,7 @@ class WelcomeScreen extends StatelessWidget {
                       child: const Padding(
                         padding: EdgeInsets.only(left: 10),
                         child: Text(
-                          'Make it your own. As you\'re setting up your\n online store, you have the ability to customize.',
+                          'Make it your own. As you\'re setting up your\nonline store, you have the ability to customize.',
                           textAlign: TextAlign.start,
                           style: TextStyle(
                               fontSize: 14, fontWeight: FontWeight.w400),

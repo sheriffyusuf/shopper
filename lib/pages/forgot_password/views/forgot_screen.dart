@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:flutter_shopper/gen_widget/app_button.dart';
 import 'package:flutter_shopper/gen_widget/input_decoration.dart';
+import 'package:flutter_shopper/pages/forgot_password/bloc/forgot_form_bloc.dart';
 import 'package:flutter_shopper/pages/login/bloc/login_bloc.dart';
 import 'package:flutter_shopper/pages/login/widgets/social_media.dart';
 import 'package:flutter_shopper/route/router.gr.dart';
@@ -16,8 +17,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:nb_utils/nb_utils.dart' hide AppButton;
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class ForgotPasswordScreen extends StatelessWidget {
+  const ForgotPasswordScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,14 +35,14 @@ class LoginScreen extends StatelessWidget {
       ),
       child: BlocProvider(
         create: (context) {
-          return LoginFormBloc();
+          return ForgotFormBloc();
         },
         child: Builder(builder: (context) {
-          final signupFormBloc = context.read<LoginFormBloc>();
+          final signupFormBloc = context.read<ForgotFormBloc>();
           return SafeArea(
               child: Scaffold(
             backgroundColor: kAppColor,
-            body: FormBlocListener<LoginFormBloc, String, String>(
+            body: FormBlocListener<ForgotFormBloc, String, String>(
               onSubmitting: (context, state) {
                 showLoader(context);
               },
@@ -104,93 +105,63 @@ class LoginScreen extends StatelessWidget {
                                                 //topRight:  Radius.circular(40.0),
                                               )),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(10.0),
+                                            padding: const EdgeInsets.all(15.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
+                                                10.height,
                                                 Container(
                                                   width: context.width(),
                                                   child: Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
-                                                            .spaceBetween,
+                                                            .spaceEvenly,
                                                     children: [
-                                                      SizedBox(
-                                                        height: 100,
-                                                        width: 150,
-                                                        child: SvgPicture.asset(
-                                                          height: 100,
-                                                          width: 150,
-                                                          "assets/images/signin_text.svg",
-                                                        ),
-                                                      ),
                                                       Padding(
                                                         padding:
                                                             const EdgeInsets
                                                                     .only(
-                                                                right: 20.0),
+                                                                right: 8.0),
                                                         child: GestureDetector(
-                                                          onTap: () => context
-                                                              .replaceRoute(
-                                                                  const SignInRoute()),
-                                                          child: const Text(
-                                                            'Register',
-                                                            style: TextStyle(
-                                                                fontSize: 18,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w700,
-                                                                color: kGray),
-                                                          ),
+                                                          onTap: (() {
+                                                            context.popRoute();
+                                                          }),
+                                                          child: const Icon(Icons
+                                                              .arrow_back_outlined),
                                                         ),
                                                       ),
+                                                      const Text(
+                                                          'Forgot Password',
+                                                          style: TextStyle(
+                                                              fontSize: 18,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700)),
+                                                      10.width,
                                                     ],
                                                   ),
                                                 ),
+                                                const Padding(
+                                                  padding: EdgeInsets.all(20.0),
+                                                  child: Text(
+                                                      'Please enter your email, we will \nsend an verify code.',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: TextStyle(
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          color: kGray)),
+                                                ),
+                                                50.height,
                                                 TextFieldBlocBuilder(
                                                   textFieldBloc:
                                                       signupFormBloc.email,
                                                   decoration: inputDecoration(
                                                       labelText: 'Email',
                                                       prefixIcon: const Icon(
-                                                          PhosphorIcons.user)),
-                                                ),
-                                                TextFieldBlocBuilder(
-                                                  textFieldBloc:
-                                                      signupFormBloc.password,
-                                                  suffixButton:
-                                                      SuffixButton.obscureText,
-                                                  obscureTextFalseIcon:
-                                                      const Icon(
-                                                          PhosphorIcons.eye),
-                                                  obscureTextTrueIcon:
-                                                      const Icon(PhosphorIcons
-                                                          .eyeSlash),
-                                                  decoration: inputDecoration(
-                                                    labelText: 'Password',
-                                                    prefixIcon: const Icon(
-                                                        PhosphorIcons.lock),
-                                                    //     suffixIcon: Icon(PhosphorIcons.eyeSlash),
-                                                  ),
-                                                ),
-                                                5.height,
-                                                GestureDetector(
-                                                  onTap: () {
-                                                    context.replaceRoute(
-                                                        const ForgotPasswordRoute());
-                                                  },
-                                                  child: const Align(
-                                                    alignment:
-                                                        Alignment.topRight,
-                                                    child: Text(
-                                                      'Forgot password?',
-                                                      style: TextStyle(
-                                                          fontSize: 12,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          color: Colors.black),
-                                                    ),
-                                                  ),
+                                                          Icons
+                                                              .email_outlined)),
                                                 ),
                                                 const Spacer(),
                                                 AppButton(
@@ -206,26 +177,6 @@ class LoginScreen extends StatelessWidget {
                                           )),
                                     ),
                                   ),
-                                ],
-                              ),
-                              5.height,
-                              const Text(
-                                'Or sign in with',
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    color: kLightGrayColor),
-                              ),
-                              25.height,
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const SocialMediaWidget(image: 'facebook'),
-                                  10.width,
-                                  const SocialMediaWidget(image: 'mail'),
-                                  10.width,
-                                  const SocialMediaWidget(image: 'twitter'),
                                 ],
                               ),
                             ],

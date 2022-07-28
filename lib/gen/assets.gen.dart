@@ -15,6 +15,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/background.svg
   String get background => 'assets/images/background.svg';
 
+  /// File path: assets/images/facebook.svg
+  String get facebook => 'assets/images/facebook.svg';
+
   /// File path: assets/images/fourth_image.svg
   String get fourthImage => 'assets/images/fourth_image.svg';
 
@@ -30,6 +33,12 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo_white.svg
   String get logoWhite => 'assets/images/logo_white.svg';
 
+  /// File path: assets/images/mail.svg
+  String get mail => 'assets/images/mail.svg';
+
+  /// File path: assets/images/register.svg
+  String get register => 'assets/images/register.svg';
+
   /// File path: assets/images/second_image.svg
   String get secondImage => 'assets/images/second_image.svg';
 
@@ -41,6 +50,9 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/third_image.svg
   String get thirdImage => 'assets/images/third_image.svg';
+
+  /// File path: assets/images/twitter.svg
+  String get twitter => 'assets/images/twitter.svg';
 
   /// File path: assets/images/welcome.svg
   String get welcome => 'assets/images/welcome.svg';

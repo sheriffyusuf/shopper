@@ -11,6 +11,7 @@ environment:
 dependencies:
   auto_route: ^4.0.1
   cached_network_image: ^3.2.1
+  country_picker: ^2.0.15
   cupertino_icons: ^1.0.2
   dio: ^4.0.6
 
@@ -22,7 +23,6 @@ dependencies:
 
   flutter_riverpod: ^2.0.0-dev.5
   flutter_form_bloc: ^0.30.1
-  
 
   font_awesome_flutter: ^10.1.0
   flutter_native_splash: ^2.2.4
