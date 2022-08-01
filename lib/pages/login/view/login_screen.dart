@@ -176,7 +176,7 @@ class LoginScreen extends StatelessWidget {
                                                 5.height,
                                                 GestureDetector(
                                                   onTap: () {
-                                                    context.replaceRoute(
+                                                    context.pushRoute(
                                                         const ForgotPasswordRoute());
                                                   },
                                                   child: const Align(
@@ -196,9 +196,10 @@ class LoginScreen extends StatelessWidget {
                                                 AppButton(
                                                   title: 'Login',
                                                   color: kButtonColor,
-                                                  onPressed: () =>
-                                                      context.replaceRoute(
-                                                          const LoginRoute()),
+                                                  onPressed: () {
+                                                    /* return context.replaceRoute(
+                                                          const LoginRoute()); */
+                                                  },
                                                 ),
                                                 15.height
                                               ],

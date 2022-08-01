@@ -25,7 +25,7 @@ class AppButton extends StatelessWidget {
       child: isDisabled
           ? Text(
               title,
-              style:const TextStyle(fontSize: 16.0),
+              style: const TextStyle(fontSize: 16.0),
             ).center().withSize(
                 width: context.width() - 32,
                 height: 48,
@@ -44,7 +44,10 @@ class AppButton extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Text(
                   title,
-                  style:const TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w700),
+                  style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700),
                 ),
               ),
             ),

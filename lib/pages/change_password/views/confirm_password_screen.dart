@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:flutter_shopper/gen_widget/app_button.dart';
 import 'package:flutter_shopper/gen_widget/input_decoration.dart';
+import 'package:flutter_shopper/pages/change_password/bloc/change_password_form_bloc.dart';
 import 'package:flutter_shopper/pages/forgot_password/bloc/forgot_form_bloc.dart';
 import 'package:flutter_shopper/pages/login/bloc/login_bloc.dart';
 import 'package:flutter_shopper/pages/login/widgets/social_media.dart';
@@ -17,8 +18,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:nb_utils/nb_utils.dart' hide AppButton;
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
-class ForgotPasswordScreen extends StatelessWidget {
-  const ForgotPasswordScreen({Key? key}) : super(key: key);
+class ConfirmPasswordScreen extends StatelessWidget {
+  const ConfirmPasswordScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,14 +36,14 @@ class ForgotPasswordScreen extends StatelessWidget {
       ),
       child: BlocProvider(
         create: (context) {
-          return ForgotFormBloc();
+          return ChangePasswordFormBloc();
         },
         child: Builder(builder: (context) {
-          final signupFormBloc = context.read<ForgotFormBloc>();
+          final signupFormBloc = context.read<ChangePasswordFormBloc>();
           return SafeArea(
               child: Scaffold(
             backgroundColor: kAppColor,
-            body: FormBlocListener<ForgotFormBloc, String, String>(
+            body: FormBlocListener<ChangePasswordFormBloc, String, String>(
               onSubmitting: (context, state) {
                 showLoader(context);
               },
@@ -155,12 +156,40 @@ class ForgotPasswordScreen extends StatelessWidget {
                                                 50.height,
                                                 TextFieldBlocBuilder(
                                                   textFieldBloc:
-                                                      signupFormBloc.email,
+                                                      signupFormBloc.password,
+                                                  suffixButton:
+                                                      SuffixButton.obscureText,
+                                                  obscureTextFalseIcon:
+                                                      const Icon(
+                                                          PhosphorIcons.eye),
+                                                  obscureTextTrueIcon:
+                                                      const Icon(PhosphorIcons
+                                                          .eyeSlash),
                                                   decoration: inputDecoration(
-                                                      labelText: 'Email',
-                                                      prefixIcon: const Icon(
-                                                          Icons
-                                                              .email_outlined)),
+                                                    labelText: 'Password',
+                                                    prefixIcon: const Icon(
+                                                        PhosphorIcons.lock),
+                                                    //     suffixIcon: Icon(PhosphorIcons.eyeSlash),
+                                                  ),
+                                                ),
+                                                TextFieldBlocBuilder(
+                                                  textFieldBloc: signupFormBloc
+                                                      .confirmPassword,
+                                                  suffixButton:
+                                                      SuffixButton.obscureText,
+                                                  obscureTextFalseIcon:
+                                                      const Icon(
+                                                          PhosphorIcons.eye),
+                                                  obscureTextTrueIcon:
+                                                      const Icon(PhosphorIcons
+                                                          .eyeSlash),
+                                                  decoration: inputDecoration(
+                                                    labelText:
+                                                        'Confirm password',
+                                                    prefixIcon: const Icon(
+                                                        PhosphorIcons.lock),
+                                                    //     suffixIcon: Icon(PhosphorIcons.eyeSlash),
+                                                  ),
                                                 ),
                                                 const Spacer(),
                                                 AppButton(

@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_shopper/pages/change_password/bloc/change_password_form_bloc.dart';
+import 'package:flutter_shopper/pages/change_password/views/confirm_password_screen.dart';
 import 'package:flutter_shopper/pages/forgot_password/views/forgot_screen.dart';
 import 'package:flutter_shopper/pages/login/view/login_screen.dart';
 import 'package:flutter_shopper/pages/onboard_page/view/first_screen.dart';
@@ -7,6 +9,7 @@ import 'package:flutter_shopper/pages/onboard_page/view/second_screen.dart';
 import 'package:flutter_shopper/pages/onboard_page/view/third_screen.dart';
 import 'package:flutter_shopper/pages/signin/views/signin_screen.dart';
 import 'package:flutter_shopper/pages/splash/splash_screen.dart';
+import 'package:flutter_shopper/pages/verify_pin/views/verify_screen.dart';
 import 'package:flutter_shopper/pages/welcome/view/welcome_screen.dart';
 
 @AdaptiveAutoRouter(
@@ -48,6 +51,14 @@ import 'package:flutter_shopper/pages/welcome/view/welcome_screen.dart';
       AutoRoute(
         page: ForgotPasswordScreen,
         path: '/forgot',
+      ),
+      AutoRoute(
+        page: VerifyScreen,
+        path: '/verify',
+      ),
+      AutoRoute(
+        page: ConfirmPasswordScreen,
+        path: '/confirm_password',
       ),
     ])
 class $RootRouter {}

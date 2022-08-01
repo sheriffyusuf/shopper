@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:flutter_shopper/gen_widget/app_button.dart';
 import 'package:flutter_shopper/gen_widget/input_decoration.dart';
+import 'package:flutter_shopper/pages/change_password/views/confirm_password_screen.dart';
 import 'package:flutter_shopper/pages/forgot_password/bloc/forgot_form_bloc.dart';
 import 'package:flutter_shopper/pages/login/bloc/login_bloc.dart';
 import 'package:flutter_shopper/pages/login/widgets/social_media.dart';
@@ -16,9 +17,10 @@ import 'package:flutter_shopper/utils/others.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nb_utils/nb_utils.dart' hide AppButton;
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
-class ForgotPasswordScreen extends StatelessWidget {
-  const ForgotPasswordScreen({Key? key}) : super(key: key);
+class VerifyScreen extends StatelessWidget {
+  const VerifyScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +132,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                                                               .arrow_back_outlined),
                                                         ),
                                                       ),
-                                                      const Text('Verify Code',
+                                                      const Text(
+                                                          'Forgot Password',
                                                           style: TextStyle(
                                                               fontSize: 18,
                                                               fontWeight:
@@ -143,7 +146,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                                                 const Padding(
                                                   padding: EdgeInsets.all(20.0),
                                                   child: Text(
-                                                      'Please enter verify code that we’ve \nsent to your email.',
+                                                      'Please enter your email, we will \nsend an verify code.',
                                                       textAlign:
                                                           TextAlign.center,
                                                       style: TextStyle(
@@ -153,14 +156,114 @@ class ForgotPasswordScreen extends StatelessWidget {
                                                           color: kGray)),
                                                 ),
                                                 50.height,
-                                                TextFieldBlocBuilder(
-                                                  textFieldBloc:
-                                                      signupFormBloc.email,
-                                                  decoration: inputDecoration(
-                                                      labelText: 'Email',
-                                                      prefixIcon: const Icon(
-                                                          Icons
-                                                              .email_outlined)),
+                                                Stack(
+                                                  children: [
+                                                    Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .symmetric(
+                                                                vertical: 8.0,
+                                                                horizontal: 30),
+                                                        child: PinCodeTextField(
+                                                          appContext: context,
+                                                          pastedTextStyle:
+                                                              TextStyle(
+                                                            color: Colors
+                                                                .green.shade600,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                          length: 4,
+
+                                                          // blinkWhenObscuring: true,
+                                                          animationType:
+                                                              AnimationType
+                                                                  .fade,
+                                                          validator: (v) {
+                                                            if (v!.length < 4) {
+                                                              return "Please fill all the fields";
+                                                            } else {
+                                                              return null;
+                                                            }
+                                                          },
+                                                          pinTheme: PinTheme(
+                                                            errorBorderColor:
+                                                                kLightGrayColor,
+                                                            selectedColor:
+                                                                kLightGrayColor,
+                                                            activeColor:
+                                                                Colors.black,
+                                                            selectedFillColor:
+                                                                Colors.white,
+                                                            shape:
+                                                                PinCodeFieldShape
+                                                                    .box,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        5),
+                                                            fieldHeight: 50,
+                                                            fieldWidth: 40,
+                                                            activeFillColor:
+                                                                Colors.white,
+                                                          ),
+                                                          cursorColor:
+                                                              Colors.black,
+                                                          animationDuration:
+                                                              const Duration(
+                                                                  milliseconds:
+                                                                      300),
+                                                          // enableActiveFill: true,
+                                                          //errorAnimationController: errorController,
+                                                          // controller: otpController,
+                                                          keyboardType:
+                                                              TextInputType
+                                                                  .number,
+                                                          boxShadows: const [
+                                                            BoxShadow(
+                                                              offset:
+                                                                  Offset(0, 1),
+                                                              color: Colors
+                                                                  .black12,
+                                                              blurRadius: 10,
+                                                            )
+                                                          ],
+                                                          onCompleted: (v) {
+                                                            signupFormBloc.email
+                                                                .updateValue(v);
+                                                            // otpString.value = v;
+                                                            debugPrint(v);
+                                                          },
+                                                          // onTap: () {
+                                                          //   print("Pressed");
+                                                          // },
+                                                          onChanged: (value) {
+                                                            //debugPrint(value);
+                                                          },
+                                                          beforeTextPaste:
+                                                              (text) {
+                                                            debugPrint(
+                                                                "Allowing to paste $text");
+                                                            //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+                                                            //but you can show anything you want here, like your pop up saying wrong paste format or etc
+                                                            return true;
+                                                          },
+                                                        )),
+                                                    Visibility(
+                                                      visible: false,
+                                                      child:
+                                                          TextFieldBlocBuilder(
+                                                        textFieldBloc:
+                                                            signupFormBloc
+                                                                .email,
+                                                        decoration: inputDecoration(
+                                                            labelText: 'Email',
+                                                            prefixIcon:
+                                                                const Icon(Icons
+                                                                    .email_outlined)),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                                 const Spacer(),
                                                 AppButton(
@@ -168,7 +271,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                                                   color: kButtonColor,
                                                   onPressed: () =>
                                                       context.replaceRoute(
-                                                          const VerifyRoute()),
+                                                          const ConfirmPasswordRoute()),
                                                 ),
                                                 15.height
                                               ],
