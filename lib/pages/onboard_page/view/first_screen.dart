@@ -5,7 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_shopper/pages/onboard_page/view/second_screen.dart';
-import 'package:flutter_shopper/route/router.gr.dart';
+import 'package:flutter_shopper/pages/tabs_config/route/router.gr.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nb_utils/nb_utils.dart';
 

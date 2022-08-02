@@ -4,7 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_shopper/gen/assets.gen.dart';
 import 'package:flutter_shopper/pages/onboard_page/view/first_screen.dart';
-import 'package:flutter_shopper/route/router.gr.dart';
+import 'package:flutter_shopper/pages/tabs_config/route/router.gr.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:nb_utils/nb_utils.dart';

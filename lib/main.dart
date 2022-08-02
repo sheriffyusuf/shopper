@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_shopper/route/router.gr.dart';
+
 import 'package:flutter_shopper/utils/colors.dart';
 import 'package:nb_utils/nb_utils.dart';
+
+import 'pages/tabs_config/route/router.gr.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

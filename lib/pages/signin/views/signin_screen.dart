@@ -9,7 +9,8 @@ import 'package:flutter_shopper/gen_widget/app_button.dart';
 import 'package:flutter_shopper/gen_widget/input_decoration.dart';
 
 import 'package:flutter_shopper/pages/signin/bloc/sign_form_bloc.dart';
-import 'package:flutter_shopper/route/router.gr.dart';
+import 'package:flutter_shopper/pages/tabs_config/route/router.gr.dart';
+
 import 'package:flutter_shopper/utils/colors.dart';
 import 'package:flutter_shopper/utils/loader.dart';
 import 'package:flutter_shopper/utils/others.dart';
@@ -281,7 +282,7 @@ class SignInScreen extends StatelessWidget {
                                                   color: kButtonColor,
                                                   onPressed: () =>
                                                       context.replaceRoute(
-                                                          const LoginRoute()),
+                                                          const TabRoute()),
                                                 ),
                                                 15.height
                                               ],

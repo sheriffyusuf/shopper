@@ -10,7 +10,7 @@ import 'package:flutter_shopper/pages/change_password/bloc/change_password_form_
 import 'package:flutter_shopper/pages/forgot_password/bloc/forgot_form_bloc.dart';
 import 'package:flutter_shopper/pages/login/bloc/login_bloc.dart';
 import 'package:flutter_shopper/pages/login/widgets/social_media.dart';
-import 'package:flutter_shopper/route/router.gr.dart';
+import 'package:flutter_shopper/pages/tabs_config/route/router.gr.dart';
 import 'package:flutter_shopper/utils/colors.dart';
 import 'package:flutter_shopper/utils/loader.dart';
 import 'package:flutter_shopper/utils/others.dart';

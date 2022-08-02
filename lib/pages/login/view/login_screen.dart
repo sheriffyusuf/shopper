@@ -8,7 +8,8 @@ import 'package:flutter_shopper/gen_widget/app_button.dart';
 import 'package:flutter_shopper/gen_widget/input_decoration.dart';
 import 'package:flutter_shopper/pages/login/bloc/login_bloc.dart';
 import 'package:flutter_shopper/pages/login/widgets/social_media.dart';
-import 'package:flutter_shopper/route/router.gr.dart';
+import 'package:flutter_shopper/pages/tabs_config/route/router.gr.dart';
+
 import 'package:flutter_shopper/utils/colors.dart';
 import 'package:flutter_shopper/utils/loader.dart';
 import 'package:flutter_shopper/utils/others.dart';
@@ -196,10 +197,8 @@ class LoginScreen extends StatelessWidget {
                                                 AppButton(
                                                   title: 'Login',
                                                   color: kButtonColor,
-                                                  onPressed: () {
-                                                    /* return context.replaceRoute(
-                                                          const LoginRoute()); */
-                                                  },
+                                                  onPressed: () => context.replaceRoute(
+                                                          const TabRoute()),
                                                 ),
                                                 15.height
                                               ],
