@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:badges/badges.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shopper/pages/main_pages/home/views/home_screen.dart';
@@ -180,11 +181,21 @@ class TabScreenState extends State<TabScreen> with TickerProviderStateMixin {
                             shape: BoxShape.circle),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Icon(
-                            PhosphorIcons.shoppingBagOpenLight,
-                            color: tabsRouter.activeIndex == 2
-                                ? Colors.white
-                                : Colors.black,
+                          child: Badge(
+                            badgeColor: kPrimaryRed,
+                            position: BadgePosition.topEnd(top: -8, end: -2),
+                            badgeContent: Text(''),
+                            child: InkWell(
+                              onTap: () {
+                                // context.pushRoute(CartRouter(children: [CartRoute()]));
+                              },
+                              child: Icon(
+                                PhosphorIcons.shoppingBagOpenLight,
+                                color: tabsRouter.activeIndex == 2
+                                    ? Colors.white
+                                    : Colors.black,
+                              ),
+                            ),
                           ),
                         ),
                       ),

@@ -36,6 +36,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/mail.svg
   String get mail => 'assets/images/mail.svg';
 
+  /// File path: assets/images/person.png
+  AssetGenImage get person => const AssetGenImage('assets/images/person.png');
+
   /// File path: assets/images/register.svg
   String get register => 'assets/images/register.svg';
 
