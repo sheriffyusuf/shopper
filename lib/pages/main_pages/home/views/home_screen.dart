@@ -3,7 +3,9 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_shopper/fake_data/fake.dart';
 import 'package:flutter_shopper/gen/assets.gen.dart';
+import 'package:flutter_shopper/pages/main_pages/home/widgets/cetegories.dart';
 import 'package:flutter_shopper/utils/colors.dart';
 import 'package:flutter_shopper/utils/others.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -141,23 +143,41 @@ class HomeScreen extends HookConsumerWidget {
             ),
           ),
         ),
-        /*   SliverToBoxAdapter(
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Container(
-              width: width / 2,
-              height: height / 4,
-              child: ListView.builder(
+              height: height / 3,
+              child: GridView(
                 scrollDirection: Axis.horizontal,
-                itemCount: listCategories.length,
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 200,
+                    childAspectRatio: 1 / 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10),
+                children: [
+                  ...fakeCategory
+                      .map(
+                        (e) => CategoryWidget(model: e).paddingAll(5),
+                      )
+                      .toList()
+                  // Some widgets
+                ],
+              ), /* ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: fakeCategory.length,
                 itemBuilder: (context, index) {
                   return Container(
                     width: 150.0,
-                    child: CategoryWidget(post: listCategories[index])
-                        .paddingAll(5),
+                    child:
+                        CategoryWidget(model: fakeCategory[index]).paddingAll(5),
                   );
                 },
               ),
+            */
             ),
-          ), */
+          ),
+        ),
         SliverList(
           delegate: SliverChildListDelegate(
             <Widget>[

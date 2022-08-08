@@ -6,3 +6,4 @@ const Color kButtonColor = Color(0xFF07BFA5);
 const Color kLightGrayColor = Color(0xFFF4F5F6);
 const Color kAppGreen = Color(0xFF07BFA5);
 const Color kPrimaryRed = Color(0xFFFF6264);
+const Color kAnotherGray = Color(0xFFFF4F5F6);

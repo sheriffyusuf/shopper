@@ -15,6 +15,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/background.svg
   String get background => 'assets/images/background.svg';
 
+  /// File path: assets/images/display.svg
+  String get display => 'assets/images/display.svg';
+
   /// File path: assets/images/facebook.svg
   String get facebook => 'assets/images/facebook.svg';
 
