@@ -113,7 +113,7 @@ class TabScreenState extends State<TabScreen> with TickerProviderStateMixin {
   }
 
   Widget buildBottomNav(BuildContext context, TabsRouter tabsRouter) {
-    final hideBottomNav = tabsRouter.topMatch.meta['hideBottomNav'] == true;
+    final hideBottomNav = tabsRouter.topMatch.meta['tomNav'] == true;
     return hideBottomNav
         ? const SizedBox.shrink()
         : Container(
